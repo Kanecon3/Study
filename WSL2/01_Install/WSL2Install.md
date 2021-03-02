@@ -39,9 +39,13 @@ Windowsのバージョン：2004 以降、もしくは 1903/1909 以降 (※こ�
 それでは開始です！  
 <br />
 <br />
-### 1：BIOSでCPUの仮想化を有効にする  
+### 1：BIOS(UEFI)でCPUの仮想化を有効にする  
 注) PCのメーカーごとに項目名が違います。  
 私のPCでは「Intel Virtualization Technology」という項目名になっていました。  
+<br />
+Windows10からBIOS/UEFIに入るための手順は下記URLを参照  
+[https://freesoft.tvbok.com/win10/access_uefi_bios_setup.html]  
+<br />
 
 ### 2：Powershellを管理者権限で起動し、下記コマンドを実行  
 ![管理者として実行する](01.jpg "Powershellを管理者として実行")   
