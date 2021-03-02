@@ -2,10 +2,13 @@
 
 # 概要  
 
-WSL2はそのままだとCUIのコンソールやアプリしか使用できないので、GUIのアプリケーションを使用できるようにします。  
-CUI環境のみで事足りる場合は必要ありません。  
-
-X Serverのアプリは今回は「VcXsrv」を使用します。  
+WSL2はそのままだとCUIのコンソールやアプリしか使用できないので、X Window System の仕組みを利用してGUIのアプリケーションを使用できるようにします。CUI環境のみで事足りる場合は必要ありません。  
+X Window SystemはWSL2の特殊な仕組みではなく、LinuxやUnixなどで一般的に使われている仕組みです。  
+<br />
+X Window Systemのアーキテクチャに関しては下記URL等を参照してください  
+[https://ja.wikipedia.org/wiki/X_Window_System]  
+<br />
+今回、X Serverのアプリは「VcXsrv」を使用します。  
 <br />
 
 # インストール/設定
