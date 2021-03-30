@@ -7,8 +7,11 @@
 <br />
 [「Notion」のすすめ](https://www.notion.so/hkanebusiness/Notion-3a49565929464d73bb470c242cc9b233)  
 <br />
-[「Power Automate Desktop」のすすめ](https://www.notion.so/hkanebusiness/Power-Automate-Desktop-c9256f8907f649cfab5ee9369902fa1b) <font color=red>new!</font>  
+[「Power Automate Desktop」のすすめ](https://www.notion.so/hkanebusiness/Power-Automate-Desktop-c9256f8907f649cfab5ee9369902fa1b)  
 <br />
+[今から始める「Node.js」](https://www.notion.so/hkanebusiness/Node-js-cefaa7bcc9554c7b9245ca14f0b3b76e) new!  
+<br />
+
 
 
 <br />
