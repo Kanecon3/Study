@@ -9,9 +9,9 @@
 <br />
 [「Power Automate Desktop」のすすめ](https://www.notion.so/hkanebusiness/Power-Automate-Desktop-c9256f8907f649cfab5ee9369902fa1b)  
 <br />
-[今から始める「Node.js」](https://www.notion.so/hkanebusiness/Node-js-cefaa7bcc9554c7b9245ca14f0b3b76e) new!  
+[今から始める「Node.js」](https://www.notion.so/hkanebusiness/Node-js-cefaa7bcc9554c7b9245ca14f0b3b76e)  
 <br />
-
+[ビジネス書/技術書のすすめ](https://www.notion.so/hkanebusiness/751f37c0afee46998274d3773ae17c88) new!  
 
 
 <br />
