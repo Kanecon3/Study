@@ -9,10 +9,137 @@ https://www.amazon.co.jp/dp/B0BSW72QKZ/
 
 ＜目次＞  
 
-TODO:  
-Ctrl+Shift+p でコマンドパレット  
-Markdown all in One:目次  
-で最後に書く  
+- [書籍の概要](#書籍の概要)
+- [理論編](#理論編)
+  - [コードの品質](#コードの品質)
+    - [コードの品質のゴール](#コードの品質のゴール)
+      - [正しく動くこと](#正しく動くこと)
+      - [正しく動作し続けること](#正しく動作し続けること)
+      - [要件の変更に対応しやすいこと](#要件の変更に対応しやすいこと)
+      - [車輪の再発明をしないこと](#車輪の再発明をしないこと)
+    - [コードの品質の柱](#コードの品質の柱)
+    - [高品質なコードを書くことは開発のスピードを遅らせるのか](#高品質なコードを書くことは開発のスピードを遅らせるのか)
+    - [まとめ](#まとめ)
+  - [抽象化レイヤー](#抽象化レイヤー)
+    - [コードのレイヤー](#コードのレイヤー)
+      - [APIと実装の詳細](#apiと実装の詳細)
+      - [関数](#関数)
+      - [クラス](#クラス)
+      - [インターフェイス](#インターフェイス)
+    - [まとめ](#まとめ-1)
+  - [コードでの契約](#コードでの契約)
+    - [あなたのコードと他のエンジニアのコード](#あなたのコードと他のエンジニアのコード)
+    - [コードでの契約](#コードでの契約-1)
+      - [契約の中の細則](#契約の中の細則)
+      - [細かいコメントに頼りすぎない](#細かいコメントに頼りすぎない)
+    - [検査とアサーション](#検査とアサーション)
+      - [検査](#検査)
+      - [アサーション](#アサーション)
+    - [まとめ](#まとめ-2)
+  - [エラー](#エラー)
+    - [回復可能性](#回復可能性)
+      - [回復可能なエラー](#回復可能なエラー)
+      - [回復不可能なエラー](#回復不可能なエラー)
+    - [堅牢性 vs 失敗](#堅牢性-vs-失敗)
+      - [早い失敗](#早い失敗)
+      - [目立つ失敗](#目立つ失敗)
+      - [回復可能かどうかの範囲](#回復可能かどうかの範囲)
+      - [エラーを隠さない](#エラーを隠さない)
+    - [エラーを通知する方法](#エラーを通知する方法)
+      - [例外](#例外)
+      - [明示的：検査例外](#明示的検査例外)
+      - [暗黙的：非検査例外](#暗黙的非検査例外)
+      - [明示的：null許容型の戻り値](#明示的null許容型の戻り値)
+      - [明示的：Result型の戻り値](#明示的result型の戻り値)
+      - [明示的：エラーを示す戻り値](#明示的エラーを示す戻り値)
+      - [暗黙的：Promise型かFuture型](#暗黙的promise型かfuture型)
+    - [まとめ](#まとめ-3)
+- [実践編](#実践編)
+  - [コードを読みやすくする](#コードを読みやすくする)
+    - [わかりやすい名前を使う](#わかりやすい名前を使う)
+    - [コメントを適切に使う](#コメントを適切に使う)
+    - [コードの行数にこだわらない](#コードの行数にこだわらない)
+    - [一貫したコーディングスタイルにこだわる](#一貫したコーディングスタイルにこだわる)
+    - [ネストの深いコードは避ける](#ネストの深いコードは避ける)
+    - [関数の呼び出しを読みやすくする](#関数の呼び出しを読みやすくする)
+    - [説明のない値を使用しない](#説明のない値を使用しない)
+    - [無名関数を適切に使用する](#無名関数を適切に使用する)
+    - [すばらしい新しい言語機能を適切に使用する](#すばらしい新しい言語機能を適切に使用する)
+    - [まとめ](#まとめ-4)
+  - [想定外の事態をなくす](#想定外の事態をなくす)
+    - [マジックナンバー(直値)を戻り値に使わない](#マジックナンバー直値を戻り値に使わない)
+    - [nullオブジェクトパターンを使用することが本当に適切なのか考える](#nullオブジェクトパターンを使用することが本当に適切なのか考える)
+    - [予期せぬ副作用の発生を避ける](#予期せぬ副作用の発生を避ける)
+    - [引数の変更に注意する](#引数の変更に注意する)
+    - [誤解を招くような関数の書き方を避ける](#誤解を招くような関数の書き方を避ける)
+      - [重要な入力値が欠けているときに何もしないと、想定外の事態を起こす可能性がある](#重要な入力値が欠けているときに何もしないと想定外の事態を起こす可能性がある)
+    - [将来的にも有効に使い続けられるように設計された列挙型処理](#将来的にも有効に使い続けられるように設計された列挙型処理)
+      - [将来の列挙型を暗黙的に処理すると、問題が発生する可能性がある](#将来の列挙型を暗黙的に処理すると問題が発生する可能性がある)
+      - [デフォルトケースに注意する](#デフォルトケースに注意する)
+    - [これらのすべてをテストで解決することはできないか？](#これらのすべてをテストで解決することはできないか)
+    - [まとめ](#まとめ-5)
+  - [誤用しにくいコードを書く](#誤用しにくいコードを書く)
+    - [誤用しにくい](#誤用しにくい)
+    - [すべてを不変にすることを検討する](#すべてを不変にすることを検討する)
+      - [可変クラスは誤用されやすい](#可変クラスは誤用されやすい)
+    - [すべてを深く不変にすることを検討する](#すべてを深く不変にすることを検討する)
+    - [あまりにも汎用的なデータ型を避ける](#あまりにも汎用的なデータ型を避ける)
+    - [時間の扱い](#時間の扱い)
+    - [データに対して信頼できる唯一の情報源を持つ](#データに対して信頼できる唯一の情報源を持つ)
+    - [まとめ](#まとめ-6)
+  - [コードをモジュール化する](#コードをモジュール化する)
+    - [DIを使用する](#diを使用する)
+      - [ハードコーディングされた依存関係](#ハードコーディングされた依存関係)
+      - [DIを念頭に置いてコードを設計する](#diを念頭に置いてコードを設計する)
+    - [インターフェイスに依存する](#インターフェイスに依存する)
+    - [クラスの継承に注意](#クラスの継承に注意)
+      - [ミックスイン(Mixin)とトレイト(trait)](#ミックスインmixinとトレイトtrait)
+    - [クラスは自分自身に関心を持つべき](#クラスは自分自身に関心を持つべき)
+      - [デメテルの法則](#デメテルの法則)
+    - [関連データをまとめてカプセル化する](#関連データをまとめてカプセル化する)
+      - [カプセル化していないデータは扱いにくい](#カプセル化していないデータは扱いにくい)
+    - [戻りの型から実装の詳細が漏洩することに注意する](#戻りの型から実装の詳細が漏洩することに注意する)
+    - [例外の中から実装の詳細が漏洩することに注意する](#例外の中から実装の詳細が漏洩することに注意する)
+    - [まとめ](#まとめ-7)
+  - [コードを再利用、汎用化しやすくする](#コードを再利用汎用化しやすくする)
+    - [グローバル状態に注意する](#グローバル状態に注意する)
+    - [デフォルト値を適切に使用する](#デフォルト値を適切に使用する)
+    - [ジェネリクスの使用を検討する](#ジェネリクスの使用を検討する)
+    - [まとめ](#まとめ-8)
+- [ユニットテスト編](#ユニットテスト編)
+  - [ユニットテストの原則](#ユニットテストの原則)
+  - [よいユニットテストとは？](#よいユニットテストとは)
+    - [破損を正確に検出する](#破損を正確に検出する)
+    - [実装の詳細にとらわれない](#実装の詳細にとらわれない)
+      - [機能変更とリファクタリングを混在しない](#機能変更とリファクタリングを混在しない)
+    - [よく説明された失敗](#よく説明された失敗)
+    - [わかりやすいテストコード](#わかりやすいテストコード)
+    - [簡単かつ迅速に実行する](#簡単かつ迅速に実行する)
+  - [パブリックAPIに注目しても重要な動作は無視しない](#パブリックapiに注目しても重要な動作は無視しない)
+  - [テストダブル](#テストダブル)
+    - [テストダブルを使用する理由](#テストダブルを使用する理由)
+      - [モック](#モック)
+      - [スタブ](#スタブ)
+      - [フェイク](#フェイク)
+    - [まとめ](#まとめ-9)
+  - [ユニットテストの実践](#ユニットテストの実践)
+    - [ただ関数をテストするのではなく動作をテストする](#ただ関数をテストするのではなく動作をテストする)
+    - [テストのためだけに公開するのは避ける](#テストのためだけに公開するのは避ける)
+      - [パラメタライズドテスト](#パラメタライズドテスト)
+    - [共通のテストのセットアップを適切に使う](#共通のテストのセットアップを適切に使う)
+      - [状態の共有は問題になる可能性がある](#状態の共有は問題になる可能性がある)
+  - [適切なアサーションマッチャーを使う](#適切なアサーションマッチャーを使う)
+  - [DIを使っててスタビリティを補強する](#diを使っててスタビリティを補強する)
+  - [テストについての最後の言葉](#テストについての最後の言葉)
+    - [まとめ](#まとめ-10)
+- [null安全とオプショナル](#null安全とオプショナル)
+  - [null安全の使用](#null安全の使用)
+  - [オプショナルの使用](#オプショナルの使用)
+- [訳者あとがき](#訳者あとがき)
+  - [おさらい](#おさらい)
+  - [それらを実践する中で、気を付けるべきこと](#それらを実践する中で気を付けるべきこと)
+  - [テストについて学んだこと](#テストについて学んだこと)
+  - [最後に](#最後に)
 
 ---
 
@@ -1550,7 +1677,7 @@ But was actually:
 
 ## パブリックAPIに注目しても重要な動作は無視しない
 
-パブリックAPIとは：publicの関数など  
+パブリックAPI：一連のパブリック関数  
 
 「パブリックAPIのみを使用してテストする」ということは、ユニットテストに関するごく一般的なアドバイスです。  
 パブリックAPIに焦点を当てることで、実装の詳細よりも、このAPIの利用者が最終的に関心のある動作のみに集中せざるを得なくなります。これは、本当に重要なことを確実にテストするのに有益で、その過程でテストが実装の詳細にとらわれないように保ち続けるのに役立ちます。  
@@ -1581,14 +1708,155 @@ But was actually:
 
 プロダクションの依存関係は、予測できない動作をすることがあります。この例としては、データベースから定期的に変化する値を読み取ったり、乱数ジェネレーターを使用してIDを生成したりするようなプロダクションの依存関係があります。テストでこのような依存関係を使用すると、テストがフレーキーになる可能性があり、これは避けたいものでしょう。
 
-依存関係よりもテストダブルを使用したほうがよいと判断したら、次は使用するテストダブルの種類を決定する必要があります。  
+依存関係よりもテストダブルを使用したほうがよいと判断したら、次は使用するテストダブルの種類を決定する必要があります。最もよく使われるのは、モック、スタブ、フェイクの3つになります。  
 
 #### モック
 
-**モック** は、メンバ関数の呼び出しを記録する機能のみを提供し、クラスまたはインターフェイスをシミュレートします。
+**モック** は、メンバ関数の呼び出しを記録する機能のみを提供し、クラスまたはインターフェイスをシミュレートします。  
 
+以下のコードは、そのままテストすると依存関係により副作用が発生します：  
+```
+class PaymentManager {
+    PaymentResult settleInvoice(BankAccount customerBankAccount, Invoice invoice) {
+        customerBankAccount.debit(invoice.getBalance());
+        return PaymentResult.paid(invoice.getId());
+    }
+}
 
-TODO:  
+interface BackAccount {
+    void debit(MonetrayAmount amount);
+    void credit(MonetaryAmount amount);
+    MonetaryAmount getBalance();
+}
+
+class BankAccountImpl implements BankAccount {
+    private final BankingBackend backend; // 現実の口座のお金に影響を与えるBankingBackendに依存する
+
+    override void debit(MonetaryAmount amount) { ... }
+    override void credit(MonetaryAmount amount) { ... }
+    override MonetaryAmount getBalance() { ... }
+}
+```
+現実の口座のお金に影響を与えるBankingBackendに依存しているため、顧客の実際の口座のお金が変わってしまいます。  
+
+BankAccountImplを使用する代わりに、BackAccountインターフェイスのモックを作成してテストを行います。  
+以下のコードは、モックを使用したテストの例です：  
+```
+void testSettleInvoice_accountDebited() {
+    BankAccount mockAccount = createMock(BankAccount);  // BankAccountのモックを作成
+    MonetaryAmount invoiceBalance = new MonetaryAmount(5.0, Currency.USD);
+    Invoice invoice = new Invoice(invoiceBalance, "test-id");
+    PaymentManager paymentManager = new PaymentManager();
+
+    paymentManager.settleInvoice(mockAccount, invoice);
+
+    // テストを実行
+    // mockAccount.debit()が期待した引数で呼び出されたかをテストし、失敗したらアサート
+    verifyThat(mockAccount.debit)
+        .wasCalledOnce()
+        .withArguments(invoiceBalance);
+}
+```
+
+モックは  
+- 主に外部への出力や振る舞いを検証するのに使用される
+- 実態からかけ離れたテストに繋がる可能性がある
+
+#### スタブ
+
+**スタブ** は、関数を呼び出すたびに定義済みの値を返すことで、関数をシミュレートします。  
+モックとスタブには明確な違いがありますが、多くのエンジニアはモックという言葉で両方を指していることが多いです。多くのテストツールでは、特定のメンバ関数をスタブするためだけに使用したい場合でも、モックと同様のツールを作成する必要があります。  
+
+```
+class PaymentManager {
+ 
+    PaymentResult settleInvoice(BankAccount customerBankAccount, Invoice invoice) {
+
+        if (customerBankAccount.getBalance().isLessThan(invoice.getBalance())) {
+            return PaymentResult.insufficientFunds(invoice.getId());
+        }
+
+        customerBankAccount.debit(invoice.getBalance());
+        return PaymentResult.paid(invoice.getId());
+    }
+}
+```
+モックの例で使用したsettleInvoice関数に新しい機能を追加しました。次のようなテストケースを追加し、以下に挙げたより多くの動作を確認する必要がでました。  
+
+- 資金が不足している場合、「資金不足」のPaymentResultを返すこと
+- 資金が不足している場合、口座から引き落とそうとしないこと
+- 資金が足りている場合、口座から引き落とすこと
+
+口座残高に依存するテストケースを作成しなければなりません。BankAccount.getBlance関数のスタブを作成し、この状況に対応します。  
+```
+void testSettleInvoice_insufficientFundsCorrectResultReturned() {
+    MonetaryAmount invoiceBalance = new MonetaryAmount(10.0, Currency.USD);
+    Invoice invoice = new Invoice(invoiceBalance, "test-id");
+
+    BankAccount mockAccount = createMock(BankAccount);  // スタブを作成するためだけでもモックしている
+
+    // getBalance関数はスタブ化され、常に9.99ドルを返すようにセットアップしている
+    when(mockAccount.getBalance()).thenReturn(new MonetaryAmount(9.99, Currency.USD));
+
+    PaymentManager paymentManager = new PaymentManager();
+    PaymentResult result = paymentManager.settleInvoice(mockAccount, invoice);
+
+    // テスト
+    assertThat(result.getStatus()).isEqualTo(INSUFFICIENT_FUNDS);
+}
+```
+
+スタブは  
+- 主に内部に向かうコミュニケーションを模倣するのに使われる
+- 実態からかけ離れたテストに繋がる可能性がある
+- 単純な固定値の返却しかできないため、複雑な状態を持つテストには不向き
+
+#### フェイク
+
+**フェイク** は、テストで安全に使用できるクラス(またはインターフェイス)の代替実装です。  
+プロダクションの依存関係のパブリックAPIを正確にシミュレートする必要がありますが、通常、その実装はプロダクションの依存関係よりも簡素化しています。多くの場合、外部システムと連携する代わりに、フェイク内のメンバ変数に状態を保存することで実現しています。  
+依存しているコードの契約が変更された場合、フェイクのコードでの契約も更新しなければなりません。  
+
+以下のコードは、BankAccountのフェイクの例です：  
+```
+class FakeBankAccount implements BankAccount {
+    private MonetaryAmount balance;
+
+    FakeBankAccount(MonetaryAmount startingBalance) {
+        this.balance = startingBalance;
+    }
+
+    @Override
+    void debit(MonetaryAmount amount) {
+        if (amount.isNegative()) {
+            throw new ArgumentException("金額はマイナスにできません");
+        }
+        balance = balance.subtract(amount);
+    }
+
+    @Override
+    void credit(MonetaryAmount amount) {
+        if (amount.isNegative()) {
+            throw new ArgumentException("金額はマイナスにできません");
+        }
+        balance = balance.add(amount);
+    }
+
+    @Override
+    void transfer(MonetaryAmount amount) {
+        balance.add(amount);
+    }
+
+    @Override
+    MonetaryAmount getBalance() {
+        return roundDownToNearest10(balance);
+    }
+
+    MonetaryAmount getActualBalance() {
+        return balance;
+    }
+}
+```
 
 ### まとめ
 
@@ -1609,7 +1877,143 @@ TODO:
 
 ## ユニットテストの実践
 
-TODO:  
+### ただ関数をテストするのではなく動作をテストする
+
+1関数につき1テストケースでは不十分である場合があります。すべての動作を網羅するようにテストケースを加えます。  
+動作ではなく関数に焦点を合わせてテストを書いてはいけません。  
+
+### テストのためだけに公開するのは避ける
+
+プライベート関数は実装の詳細であり、コードの外側から認識されるべきではなく、直接利用されるべきではありません。プライベート関数を直接テストできるようにするため、プライベート関数をテストコードに公開したくなることがあります。しかし、これはよいアイデアではない場合が多く、結果として実装の詳細と密接にかかわったテストができあがり、本来関心を持つべきことを結局テストしていません。
+
+クラス(やコード単位)がより複雑で多くのロジックを持ち始めた場合、パブリックAPI経由ですべての動作をテストするのは、少々難しくなっていきます。これは、抽象化レイヤーが厚くなりすぎたため、コードを小さい単位に分割した方がよいというサインです。
+
+#### パラメタライズドテスト
+
+**パラメタライズドテスト** は、引数を切り替えて同じテストを繰り返し実行するテストのことです。いくつかのテストフレームワークには、パラメタライズドテストを書くための機能があります。  
+
+例：  
+
+- C#のNUnitフレームワーク：TestCase属性  
+- JavaのJUnitフレームワーク
+- JavaScriptのJasmineフレームワーク
+
+### 共通のテストのセットアップを適切に使う
+
+多くのテストフレームワークでは、セットアップをテストケース間で簡単に共有できるようになっています。  
+
+通常、共有されるセットアップのコードを設定できる実行タイミングは2つあります。  
+
+- BeforeAll (もしくは OnTimeSetup)  
+  BeforeAllブロックにあるセットアップのコードは、すべてのテストケースを実行する直前に1回だけ実行される
+- BeforeEach (もしくは Setup)  
+  BeforeEachブロックにあるセットアップのコードは、それぞれのテストケースを実行する直前に1回実行される
+
+同じように、多くの場合、後処理のコードを実行する方法も提供しています。  
+
+- AfterAll (もしくは OneTearDown)
+- AfterEach (もしくは TearDown)
+
+#### 状態の共有は問題になる可能性がある
+
+あるテストケースが実行するアクションは、他のテストケースの結果に影響を与えるべきではありません。テストケース間で可変状態を共有すると、簡単にこのケースを誤って破ってしまいます。  
+
+## 適切なアサーションマッチャーを使う
+
+最新のテスト用のアサーションツールのほとんどは、テストで使用できる無数のマッチャーを持っています。
+
+例：  
+
+- Java：TruthライブラリーのcontainsAtLeast()
+- JavaScript：JasmineフレームワークのJasmine.arrayContaining()
+
+## DIを使っててスタビリティを補強する
+
+ハードコーディングされた依存関係がテストを不可能にする例：
+```
+class InvoiceReminder {
+    private final AddressBook addressBook;
+    private final EmailSender emailSender;
+
+    // コンストラクタ
+    InvoiceReminder() {
+        this.addressBook = DataStore.getAddressBook();  // DBからAddressBookを取得する
+        this.emailSender = new EmailSenderImpl();   // 
+    }
+
+    @CheckReturnValue
+    Boolean sendReminder(Invoice invoice) {
+        EmailAddress? address = addressBook.lookupEmailAddress(invoice.getCustomerId());
+
+        if (address == null) {
+            return false;
+        }
+
+        // emailSenderを使用して実際にメールを送信
+        return emailSender.send(address, InvoiceReminderTemplate.generate(invoice));
+    }
+}
+```
+
+- 顧客の情報が格納されたDBにアクセスしてしまう
+- 顧客のアドレスにメールを送信してしまう
+
+DIを利用した解決例：
+```
+class InvoiceReminder {
+    private final AddressBook addressBook;
+    private final EmailSender emailSender;
+
+    // コンストラクタ経由でDI
+    InvoiceReminder(
+        AddressBook addressBook,
+        EmailSender emailSender) {
+        this.addressBook = addressBook;
+        this.emailSender = emailSender;
+    }
+
+    static InvoiceReminder create() {
+        return new InvoiceReminder(
+            DataStore.getAddressBook(),
+            new EmailSenderImpl());
+    }
+
+    @CheckReturnValue
+    boolean sendReminder(Invoice invoice) {
+        EmailAddress? address =
+            addressBook.lookupEmailAddress(invoice.getCustomerId());
+        if (address == null) {
+            return false;
+        }
+        return emailSender.send(
+            address,
+            InvoiceReminderTemplate.generate(invoice));
+    }
+}
+```
+テストコードは以下のようになります：
+```
+FakeAddressBook addressBook = new FakeAddressBook();
+addressBook.addEntry(
+    customerId: 123456,
+    emailAddress: "test@example.com");
+FakeEmailSender emailSender = new FakeEmailSender();
+
+InvoiceReminder invoiceReminder = 
+    new InvoiceReminder(addressBook, emailSender);
+```
+
+## テストについての最後の言葉
+
+ソフトウェアテストは膨大なトピックであり、この章で取り扱ったものは氷山の一角にすぎません。あなたがこれから遭遇する可能性が高いテストを示します。  
+
+- インテグレーションテスト
+- End-to-End(E2E)テスト
+- リグレッションテスト
+- ゴールデンテスト(仕様化テスト)
+- ファズテスト
+
+高水準のソフトウェアを書いてメンテナンスするには、多くの場合、それらを組み合わせて使用することが要求されます。ユニットテストだけですべてのテストのニーズを満たすことはおそらくないでしょう。さまざまな種類のテストに触れ、新しいツールやテクニックをキャッチアップしてくことが大事です。  
 
 ### まとめ
 
