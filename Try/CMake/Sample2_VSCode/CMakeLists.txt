@@ -12,7 +12,7 @@ project(Sample2 CXX)
 add_subdirectory(calculation)
 
 # includeのパス
-target_include_directories(Calculation INTERFACE calculation/include)
+target_include_directories(Calculation PUBLIC calculation/include)
 
 # 実行ファイル名 コンパイルするファイル
 add_executable(main_app Main.cpp)
