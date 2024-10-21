@@ -1,12 +1,11 @@
+# cmakeの最低バージョン
 cmake_minimum_required(VERSION 3.1)
-project(mylib
-    VERSION 1.0.0
-    DESCRIPTION "library"
-    LANGUAGES CXX)
-add_library(Calculation STATIC src/Calculate1.cpp)
-target_compile_features(Calculation PUBLIC cxx_std_11)
-target_include_directories(Calculation PRIVATE include)
-set_target_properties(Calculation
-    PROPERTIES
-    VERSION ${mylib_VERSION})
 
+# プロジェクト名 言語
+project(mylib CXX)
+
+# 作成するライブラリ名(自動的に"Libライブラリ名"になる) 静的ライブラリ コンパイルするファイル
+add_library(Calculation STATIC src/Calculate1.cpp)
+
+# include
+target_include_directories(Calculation PRIVATE include)
