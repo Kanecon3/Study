@@ -18,7 +18,7 @@ Singleton パターンはよく使用されるデザインパターンです。
 
 ## 実装例
 
-実装例1：GetInstanceメソッドを呼んだタイミングで、インスタンスを生成する  
+実装例1. GetInstanceメソッドを呼んだタイミングで、インスタンスを生成する例:
 
 ```CSharp
 // Singletonパターンのサンプル(C#)
@@ -72,7 +72,7 @@ namespace Singleton
 }
 ```
 
-実装例2：GetInstanceメソッドでnullチェックしてインスタンスを生成する処理を省く  
+実装例2. GetInstanceメソッドでnullチェックしてインスタンスを生成する処理を省く例:
 
 ```CSharp
 // Singletonパターンのサンプル(C#)
