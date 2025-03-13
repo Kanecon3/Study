@@ -1,4 +1,4 @@
-﻿# 「WSL」って何？  
+# 「WSL」って何？  
 
 WSLとは「Windows Subsystem for Linux」の略  
 簡単に言うと Windows10の上でLinuxを動かすことが可能な仕組みです。  
