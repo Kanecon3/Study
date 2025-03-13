@@ -1,0 +1,43 @@
+# 共通
+* text=lf working-tree-encoding=UTF-8
+ 
+# Windows用のスクリプトファイル
+*.bat text eol=crlf
+*.cmd text eol=crlf
+ 
+# Unix系のスクリプトファイル
+*.sh text eol=lf
+ 
+# テキストファイル
+*.txt text
+*.md text
+*.json text
+*.xml text
+*.yaml text
+*.yml text
+ 
+# ソースコード
+*.c text
+*.h text
+*.cpp text
+*.hpp text
+*.cs text eol=crlf working-tree-encoding=UTF-8-BOM
+ 
+# Visual Studioのプロジェクトファイル
+*.sln text eol=crlf working-tree-encoding=UTF-8-BOM
+*.csproj text eol=crlf working-tree-encoding=UTF-8-BOM
+*.vbproj text eol=crlf working-tree-encoding=UTF-8-BOM
+*.vcxproj text eol=crlf working-tree-encoding=UTF-8-BOM
+ 
+# バイナリファイル（変換しない）
+*.png binary
+*.jpg binary
+*.gif binary
+*.ico binary
+*.zip binary
+*.pdf binary
+*.exe binary
+*.dll binary
+*.lib binary
+*.obj binary
+*.pdb binary
