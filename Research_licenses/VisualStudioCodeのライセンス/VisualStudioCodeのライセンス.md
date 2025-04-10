@@ -1,5 +1,7 @@
 # Visual Studio Codeの種類について
 
+CursorでC/C++の拡張機能が使えなくなってしまったのを受けて、Visual Studio Codeのライセンスなどを調べてみました。
+
 ## 1. Code-OSS
 
 GitHubリポジトリ（[github.com/microsoft/vscode](https://github.com/microsoft/vscode)）で開発されているオープンソース版。
@@ -15,11 +17,11 @@ GitHubリポジトリ（[github.com/microsoft/vscode](https://github.com/microso
 
 - Microsoftの製品ライセンスで提供
 - 追加される主な機能：
-  - Microsoft独自のアイコンやブランド要素
   - 拡張機能を配布しているVisual Studio Marketplaceとの統合
   - リモート開発機能の一部
   - 特定のMicrosoft製デバッグアダプター
   - 厳選された拡張機能の推奨リスト
+  - テレメトリーの収集
 
 ### Stable版
 
@@ -40,7 +42,10 @@ VS Codeの開発版（ナイトリービルド）
 1. **ライセンス**
     - Code-OSS: MITライセンス（オープンソース）
     - VS Code: Microsoft製品ライセンス
-      - Microsoftが作成している拡張機能もMicrosoftの製品ライセンス
+    - Microsoftが作成している拡張機能もMicrosoftの製品ライセンス  
+      以下の拡張機能など：
+      - [C/C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools)
+      - [C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
 
 2. **機能の違い**
     - プロプライエタリ（独占的）なコードは全体のごく一部
@@ -66,5 +71,4 @@ VS Codeの設定で`teremtry`で検索してみました。情報が送られて
 
 ### CursurやWindsurfは？
 
-CursorやWindsurfは「VS Codeのフォーク」と書かれている記事をよく見ますが、おそらくCode-OSSのフォークだと思われます。
-（明確な情報が見つからず）
+CursorやWindsurfは「VS Codeのフォーク」と書かれている記事をよく見ますが、おそらくCode-OSSのフォークだと思われます。（明確な情報は見つからず）
