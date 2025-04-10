@@ -63,11 +63,9 @@ VS Codeの開発版（ナイトリービルド）
 
 ### VS Codeのテレメトリー
 
-VS Codeの設定で`teremtry`で検索してみました。情報が送られているのが嫌な人は設定を変更しましょう。
+VS Codeの設定で`telemtry`で検索してみました。情報が送られているのが嫌な人は設定を変更しましょう。
 
 ![vscode telemetry](pic/vscode_telemetry.jpg)
-
-なお、Insiders版だと試験段階となっている項目がもっとありました。
 
 ### CursurやWindsurfは？
 
