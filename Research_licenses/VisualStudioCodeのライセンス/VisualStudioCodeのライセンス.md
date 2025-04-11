@@ -2,17 +2,18 @@
 
 CursorでC/C++の拡張機能が使えなくなってしまったのを受けて、Visual Studio Codeのライセンスなどを調べてみました。
 
-## 1. Code-OSS
+## 1. Code - OSS
 
-GitHubリポジトリ（[github.com/microsoft/vscode](https://github.com/microsoft/vscode)）で開発されているオープンソース版。
+GitHubリポジトリ（[github.com/microsoft/vscode](https://github.com/microsoft/vscode)）で開発されているオープンソース版。  
 
 - MITライセンスで提供されている
 - 誰でも自由に使用、改変、再配布が可能
 - 基本的なエディタ機能のすべてのソースコードが含まれている
+- これも「Visual Studio Code」を名乗っているので分かりづらい。区別をつけるために、「Code - OSS」と呼び分けているようです。
 
 ## 2. Microsoft Visual Studio Code
 
-前述のCode-OSSをベースに、Microsoft独自のカスタマイズを加えた製品版。  
+前述のCode - OSSをベースに、Microsoft独自のカスタマイズを加えた製品版。  
 以下、「VS Code」はMicrosoft版を指すこととします。
 
 - Microsoftの製品ライセンスで提供
@@ -40,7 +41,7 @@ VS Codeの開発版（ナイトリービルド）
 ## 主な違いのポイント
 
 1. **ライセンス**
-    - Code-OSS: MITライセンス（オープンソース）
+    - Code - OSS: MITライセンス（オープンソース）
     - VS Code: Microsoft製品ライセンス
     - Microsoftが作成している拡張機能もMicrosoftの製品ライセンス  
       以下の拡張機能など：
@@ -52,7 +53,7 @@ VS Codeの開発版（ナイトリービルド）
     - 主にMicrosoft独自のサービスとの連携機能に関する部分
 
 3. **ブランディング**
-    - Code-OSS: Microsoft以外の組織が独自のブランドで再配布可能
+    - Code - OSS: Microsoft以外の組織が独自のブランドで再配布可能
     - VS Code: Microsoftのブランド要素を含む
 
 ## 補足
@@ -69,4 +70,4 @@ VS Codeの設定で`telemtry`で検索してみました。情報が送られて
 
 ### CursurやWindsurfは？
 
-CursorやWindsurfは「VS Codeのフォーク」と書かれている記事をよく見ますが、おそらくCode-OSSのフォークだと思われます。（明確な情報は見つからず）
+CursorやWindsurfは「VS Codeのフォーク」と書かれている記事をよく見ますが、おそらくCode - OSSのフォークだと思われます。（明確な情報は見つからず）
