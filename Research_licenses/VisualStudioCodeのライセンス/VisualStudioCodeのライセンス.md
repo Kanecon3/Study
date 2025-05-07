@@ -1,5 +1,7 @@
 # Visual Studio Codeの種類について
 
+資料作成日: 2025/04/11
+
 CursorでC/C++の拡張機能が使えなくなってしまったのを受けて、Visual Studio Codeのライセンスなどを調べてみました。
 
 ## 1. Code - OSS
