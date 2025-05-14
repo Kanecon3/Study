@@ -114,3 +114,6 @@ Chromiumは大きく、広大で、依存関係が多く、ウェブブラウザ
 ソフトウェア・アプリケーションにUnicodeとGlobalizationのサポートを提供するC/C++とJavaライブラリ  
 [公式](https://icu.unicode.org/)  
 
+---
+Obsidian tag:  
+#research  

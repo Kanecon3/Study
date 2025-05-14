@@ -73,3 +73,7 @@ VS Codeの設定で`telemtry`で検索してみました。情報が送られて
 ### CursurやWindsurfは？
 
 CursorやWindsurfは「VS Codeのフォーク」と書かれている記事をよく見ますが、おそらくCode - OSSのフォークだと思われます。（明確な情報は見つからず）
+
+---
+Obsidian tag:  
+#research  

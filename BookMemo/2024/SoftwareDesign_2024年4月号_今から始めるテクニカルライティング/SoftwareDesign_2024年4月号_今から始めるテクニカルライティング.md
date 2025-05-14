@@ -651,3 +651,6 @@ https://www.amazon.co.jp/dp/4902820102/
 『論理が伝わる 世界標準の「書く技術」』  
 https://www.amazon.co.jp/dp/4062577933  
 
+---
+Obsidian tag:  
+#book-summary  
