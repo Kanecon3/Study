@@ -2203,5 +2203,5 @@ void displayFifthElement() {
 
 ---
 Obsidian tag:  
-#coding  
+#programming  
 #readable-code  
