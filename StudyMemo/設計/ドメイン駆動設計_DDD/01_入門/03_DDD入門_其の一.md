@@ -100,17 +100,17 @@ Money money3 = money1.Add(money2);  // 通貨が揃っているので成功
 
 // エラー
 Money yenMoney = new Money(1000, "Yen");       // 円
-Money dollerMoney = new Money(100, "Doller");  // ドル
-MOney errMoney = yenMoney.Add(dollerMoney);    // 通貨が揃っていないのでエラー
+Money dollarMoney = new Money(100, "Dollar");  // ドル
+MOney errMoney = yenMoney.Add(dollarMoney);    // 通貨が揃っていないのでエラー
 ```
 
 プリミティブ型で表した場合:  
 
 ```CSharp
 decimal yenMoney = 1000;    // 円
-decimal dollerMoney = 100;  // ドル
+decimal dollarMoney = 100;  // ドル
 
-decimal errMony = yemMoney + dollerMoney;   // 通貨が揃っていないので本来はエラーだが加算出来てしまう
+decimal errMoney = yemMoney + dollarMoney;   // 通貨が揃っていないので本来はエラーだが加算出来てしまう
 ```
 
 このように独自のふるまいを定義することで、システマチックに誤った操作を防止できます。  
